@@ -1186,9 +1186,11 @@ archive_read_format_zip_read_data(struct archive_read *a,
 	if (zip->end_of_entry)
 		return (ARCHIVE_EOF);
 
+#if 0
 	/* Return EOF immediately if this is a non-regular file. */
 	if (AE_IFREG != (zip->entry->mode & AE_IFMT))
 		return (ARCHIVE_EOF);
+#endif
 
 	if (zip->entry->flags & (ZIP_ENCRYPTED | ZIP_STRONG_ENCRYPTED)) {
 		archive_set_error(&a->archive, ARCHIVE_ERRNO_FILE_FORMAT,
