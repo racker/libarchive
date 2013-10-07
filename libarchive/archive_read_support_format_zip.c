@@ -1735,10 +1735,12 @@ process_extra(const char *p, size_t extra_length, struct zip_entry* zip_entry)
 		offset += datasize;
 	}
 #ifdef DEBUG
+#if 0
 	if (offset != extra_length)
 	{
 		fprintf(stderr,
 		    "Extra data field contents do not match reported size!\n");
 	}
+#endif
 #endif
 }
